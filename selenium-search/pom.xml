@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.autotrader</groupId>
+  <artifactId>selenium-search</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>SeleniumSearch</name>
+  <description>Autotrader - Basic Search Functionality Test</description>
+  
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <selenium.java.version>3.141.59</selenium.java.version>
+        <testng.version>6.14.3</testng.version>
+        <webdrivermanager.version>3.6.0</webdrivermanager.version>
+    </properties>
+    
+    <dependencies>
+	<dependency>
+    	<groupId>io.github.bonigarcia</groupId>
+    	<artifactId>webdrivermanager</artifactId>
+    	<version>${webdrivermanager.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+    	<artifactId>selenium-java</artifactId>
+    	<version>${selenium.java.version}</version>
+	</dependency>
+	<dependency>
+    	<groupId>org.testng</groupId>
+    	<artifactId>testng</artifactId>
+    	<version>${testng.version}</version>
+    	<scope>test</scope>
+	</dependency>
+  </dependencies>	
+</project>
