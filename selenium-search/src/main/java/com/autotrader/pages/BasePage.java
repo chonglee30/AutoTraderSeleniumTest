@@ -12,16 +12,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class BasePage {
-
-	int WAIT_TIME = 30;
 	
 	protected WebDriver driver;
-	protected WebDriverWait wait;
+	//protected WebDriverWait waitDriver;
 	
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		this.wait = new WebDriverWait(driver, WAIT_TIME);
+	}
+	
+	public void selectCheckbox(WebElement checkbox) {
+		if (!checkbox.isSelected()) {
+			System.out.println("Select the checkbox");
+			checkbox.click();
+		}
+	}
+	
+	public void unselectCheckbox(WebElement checkbox) {
+		if (checkbox.isSelected()) {
+			System.out.println("Unselect the checkbox");
+	    	//DynamicWait.using(driver).waitForElementToBeVisible(checkbox);
+			//DynamicWait.using(driver).waitForElementToBeClickable(checkbox);
+			
+			checkbox.click();
+		}
 	}
 	
 	public void click(By locator) {

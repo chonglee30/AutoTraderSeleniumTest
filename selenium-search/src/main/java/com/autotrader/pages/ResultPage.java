@@ -4,37 +4,32 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.autotrader.pojo.Automobile;
 import com.autotrader.wait.DynamicWait;
 
 public class ResultPage extends BasePage{
 
 	private String resultPageTitle;		
 	private String resultPageHeader;
-	
-	private String maker;
-	private String model;
-	
+		
 	@FindBy(id="sbCount")
 	private WebElement resultCount;
 	
 	@FindBy(id="faceted-Location")
 	private WebElement resultLocation;
 	
-	public ResultPage(WebDriver driver, String autoMaker, String autoModel) {
+	public ResultPage(WebDriver driver, Automobile auto) {
 		super(driver);
-		updateResultPageTitleHeader(autoMaker, autoModel);
+		updateResultPageTitleHeader(auto);
 		DynamicWait.using(driver).waitUntilPageWithTitleContain(resultPageTitle);
 	}
 	
-	private void setMakerModel(String autoMaker, String autoModel) {
-		maker = autoMaker;
-		model = autoModel;
-	}
 	
-	private void updateResultPageTitleHeader(String autoMaker, String autoModel) {
-		setMakerModel(autoMaker, autoModel);
-		resultPageTitle = String.format("New & Used %s %s for sale in ", maker, model);
-		resultPageHeader = String.format("New & Used %s %s for sale in ", maker, model);
+	private void updateResultPageTitleHeader(Automobile auto) {
+		resultPageTitle = String.format("%s %s %s for sale in ",auto.getType().getAutoType(), auto.getMaker(), auto.getModel());
+		resultPageHeader = String.format("%s %s %s for sale in ",auto.getType().getAutoType(), auto.getMaker(), auto.getModel());
+		System.out.println("Result Page Title: "+resultPageTitle);
+		System.out.println("Result Page Header: "+resultPageHeader);
 	}
 		
 }
