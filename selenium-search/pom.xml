@@ -13,6 +13,7 @@
         <assertj.version>3.12.2</assertj.version>
         <testng.version>6.14.3</testng.version>
         <webdrivermanager.version>3.6.0</webdrivermanager.version>
+        <opencsv.version>4.6</opencsv.version>
     </properties>
     
     <dependencies>
@@ -37,6 +38,11 @@
     	<artifactId>testng</artifactId>
     	<version>${testng.version}</version>
     	<scope>test</scope>
+	</dependency>
+	<dependency>
+    	<groupId>com.opencsv</groupId>
+    	<artifactId>opencsv</artifactId>
+    	<version>${opencsv.version}</version>
 	</dependency>
   </dependencies>	
 </project>

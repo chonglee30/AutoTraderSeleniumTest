@@ -5,6 +5,8 @@ import com.autotrader.config.SeleniumDriver;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.AfterClass;
 import org.openqa.selenium.WebDriver;
@@ -22,24 +24,24 @@ public class BaseTest {
 	@BeforeTest
 	public void setupDriver() {
 		System.out.println("Set Up Driver");
-		getSeleuniumDriver().startDriver(ConfigProperties.using().getBrowser());
 	}
 		
-	@BeforeClass
+	@BeforeMethod
 	public void openApplication() {		
-		System.out.println("Open ");
+		System.out.println("Before Method: Open ");
+		getSeleuniumDriver().startDriver(ConfigProperties.using().getBrowser());
 		getDriver().get(ConfigProperties.using().getBaseUrl());
 	}
 	
-	@AfterClass
+	@AfterMethod
 	public void closeApplication() {
-		//getDriver().quit();
+		System.out.println("After Method: ");
+		getSeleuniumDriver().cleanSeleniumSession();
+		getDriver().quit();
 	}
 	
 	@AfterTest
 	public void teardownDriver() {
 		System.out.println("Tear Down Driver");
-		getSeleuniumDriver().cleanSeleniumSession();
-		getDriver().quit();
 	}
 }

@@ -6,33 +6,16 @@ public class Automobile {
 	private String model;
 	private String maxPrice;
 	private String type;
+	private Location location;
 	
-	public Automobile(String maker, String model, String maxPrice, String type) {
+	public Automobile(String maker, String model, String maxPrice, String type, Location location) {
 		this.maker = maker;
 		this.model = model;
 		this.maxPrice = maxPrice;
 		this.type = type;
+		this.location = location;
 	}
-	
-	public String getMaker() {
-		return maker;
-	}
-	public void setMaker(String maker) {
-		this.maker = maker;
-	}
-	public String getModel() {
-		return model;
-	}
-	public void setModel(String model) {
-		this.model = model;
-	}
-	public String getMaxPrice() {
-		return maxPrice;
-	}
-	public void setMaxPrice(String maxPrice) {
-		this.maxPrice = maxPrice;
-	}
-
+			
 	public AutoType getType() {
 		switch(type) {
 			case "Default":
@@ -48,8 +31,23 @@ public class Automobile {
 		}
 	}
 	
-	public void setType(String type) {
-		this.type = type;
-	}	
+	public String getAutoType() {
+		return this.type;
+	}
 	
+	public String getMaker() {
+		return this.maker;
+	}
+	
+	public String getModel() {
+		return this.model;
+	}
+	
+	public String getMaxPrice() {
+		return this.maxPrice;
+	}
+	
+	public Location getLocation() {
+		return this.location;
+	}
 }

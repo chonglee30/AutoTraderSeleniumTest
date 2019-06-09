@@ -1,28 +1,35 @@
 package com.autotrader.tests;
 
 import com.autotrader.pojo.Automobile;
+import com.autotrader.pojo.Location;
+import com.autotrader.files.ReadFile;
 import com.autotrader.pages.HomePage;
 import com.autotrader.pages.ResultPage;
-import com.autotrader.pojo.AutoType;
+
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import java.util.Iterator;
+import org.testng.Assert;
 
 public class SearchTest extends BaseTest{
 	
-	@Test
-	public void searchBMWTest() {
+	@Test (dataProvider="search-data")
+	public void autoInfoSearchTest(String make, String model, String maxPrice,
+					  String type, String postalCode, String city) {
+		
 		HomePage homePage = new HomePage(getDriver());
 		
-		// Data-Driven:
-		// Case1: Vancouver: V5K 0A1
-		// Case2: Port Moody: V3H 1G7
-		// Case3: Burnaby: V5G 3H6
-		// Case4: Toronto: M4C 1T2
-		
-		//AutoType.DEFAULT
-		Automobile auto = new Automobile("BMW", "3 Series", "15000","New");
-		//ResultPage resultPage = homePage.basicSearchForDefaultSelectedAuto(auto, "V5G 3H6");	
-		ResultPage resultPage = homePage.basicSearchForNewAutoOnly(auto, "V5G 3H6");
+		Location location = new Location(postalCode, city);
+		Automobile auto = new Automobile(make, model,maxPrice,type,location);
+		ResultPage resultPage = homePage.autoSearchByPostalCode(auto);
+		Assert.assertTrue(resultPage.isSearchResultContain());
+		Assert.assertTrue(resultPage.isAutoInfoCorrectlyDisplay());	
+		Assert.assertTrue(resultPage.isCityCorrectlyDisplay());
 	}
-	
-	
+		
+	@DataProvider(name="search-data")
+	public Iterator<Object[]> getSearchData() {
+		String fileToParse = "AutoSearchData.csv";
+		return ReadFile.using().readSearchData(fileToParse);
+	}
 }

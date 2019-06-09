@@ -2,6 +2,7 @@ package com.autotrader.pages;
 
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,28 +15,28 @@ import org.openqa.selenium.WebElement;
 public class BasePage {
 	
 	protected WebDriver driver;
-	//protected WebDriverWait waitDriver;
+	protected JavascriptExecutor js;
 	
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
+		js = (JavascriptExecutor) driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	public void selectCheckbox(WebElement checkbox) {
-		if (!checkbox.isSelected()) {
-			System.out.println("Select the checkbox");
-			checkbox.click();
+		
+	public void unselectCheckboxJS(WebElement element) {	
+		if (element.isSelected()) {
+			clickJS(element);
 		}
 	}
 	
-	public void unselectCheckbox(WebElement checkbox) {
-		if (checkbox.isSelected()) {
-			System.out.println("Unselect the checkbox");
-	    	//DynamicWait.using(driver).waitForElementToBeVisible(checkbox);
-			//DynamicWait.using(driver).waitForElementToBeClickable(checkbox);
-			
-			checkbox.click();
+	public void unselectCheckbox(WebElement element) {	
+		if (element.isSelected()) {
+			click(element);
 		}
+	}
+	
+	public void clickJS(WebElement element) {
+		js.executeScript("arguments[0].click();", element);
 	}
 	
 	public void click(By locator) {
