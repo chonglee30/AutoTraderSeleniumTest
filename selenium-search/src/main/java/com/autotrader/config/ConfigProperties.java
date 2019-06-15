@@ -34,6 +34,9 @@ package com.autotrader.config;
 				extractProperties();
 			}
 			
+			//do not use null
+			//use try with resources instead
+			//the try/catch is very bad
 			protected void loadEnvironmentConfigFromPropertyFiles() {	
 				InputStream input=null;
 				
@@ -61,7 +64,8 @@ package com.autotrader.config;
 			    
 				testdata = (String) properties.get("test.data");
 			}
-
+			
+			//do not use static methods
 			public static String getBaseUrl() {
 				return baseUrl;
 			}
