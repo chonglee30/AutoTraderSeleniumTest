@@ -11,7 +11,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 
-
+//personnaly, even if i use expected conditions and explicit waits a lot, i find this class to have very little value
+//use the explicit waits in the page objects instead
 public class DynamicWait {
 
 	private static final int GLOABL_WAIT_TIME = 20;
