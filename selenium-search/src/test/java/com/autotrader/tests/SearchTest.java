@@ -13,6 +13,7 @@ import org.testng.Assert;
 
 public class SearchTest extends BaseTest{
 	
+	//the name of the test should explain what the test does; this name is totally confusing
 	@Test (dataProvider="search-data")
 	public void autoInfoSearchTest(String make, String model, String maxPrice,
 					  String type, String postalCode, String city) {
@@ -21,8 +22,14 @@ public class SearchTest extends BaseTest{
 		
 		Location location = new Location(postalCode, city);
 		Automobile auto = new Automobile(make, model,maxPrice,type,location);
+		
+		//search() is better since there are other parameters in addition to the postal code
 		ResultPage resultPage = homePage.autoSearchByPostalCode(auto);
+		
+		//what exactly does this assertion check for?
 		Assert.assertTrue(resultPage.isSearchResultContain());
+		
+		//which info is checked?
 		Assert.assertTrue(resultPage.isAutoInfoCorrectlyDisplay());	
 		Assert.assertTrue(resultPage.isCityCorrectlyDisplay());
 	}
@@ -30,6 +37,10 @@ public class SearchTest extends BaseTest{
 	@DataProvider(name="search-data")
 	public Iterator<Object[]> getSearchData() {
 		String fileToParse = "AutoSearchData.csv";
+		
+		//again static methods
+		//static methods are a bad idea in general unless you build a framework
+		//object oriented code uses objects and not static variables and static methods
 		return ReadFile.using().readSearchData(fileToParse);
 	}
 }
