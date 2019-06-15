@@ -22,8 +22,12 @@ public class HomePage extends BasePage {
 		unselectCheckboxJS(secondCheckbox);
 	}
 	
+	//break it down in 3 methods
+	//a method should do 1 thing only
 	private void selectAutoType(Automobile auto) {
 		if (auto.getAutoType().equals("New")) {
+			
+			//too many methods to get a checkbox
 			WebElement usedElement = basicAutoSearchTab.getAutoTypeCheckbox().getUsedCheckbox();
 			WebElement preOwnedElement = basicAutoSearchTab.getAutoTypeCheckbox().getPreOwnedCheckbox();
 			unselectOtherAutoTypes(usedElement,preOwnedElement);
@@ -38,6 +42,9 @@ public class HomePage extends BasePage {
 		}			
 	}
 	
+	//too complex
+	//getAutoMakeModelLists() should be private
+	//also, why do you call it twice?
 	public ResultPage autoSearchByPostalCode(Automobile auto) {
 		selectAutoType(auto);		
 		basicAutoSearchTab.getAutoMakeModelLists().selectMakes(auto.getMaker());
