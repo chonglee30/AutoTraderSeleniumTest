@@ -21,6 +21,8 @@ public class AutoMakeModelLists {
 		this.driver = driver;
 	}
 	
+	//it is bad to save autoMaker in maker since maker is a class variable
+	//a method should only work on itself
 	public void selectMakes(String autoMaker) {
 		WebElement makeElement = driver.findElement(SELECT_MAKE);
 		Select make = new Select(makeElement);
@@ -29,6 +31,7 @@ public class AutoMakeModelLists {
 		SelectWait.using(driver).waitForSelectedElement(make);
 	}
 	
+	//see above
 	public void selectModel(String autoModel) {
 		WebElement modelElement = driver.findElement(SELECT_MODEL);
 		Select selModel = new Select(modelElement);
