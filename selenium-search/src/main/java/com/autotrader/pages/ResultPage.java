@@ -28,10 +28,15 @@ public class ResultPage extends BasePage{
 	public ResultPage(WebDriver driver, Automobile auto) {
 		super(driver);
 		this.driver = driver;
+		
+		//this should not happen in the constructor
 		updateResultPageTitleHeader(auto);
+		
 		DynamicWait.using(driver).waitUntilPageWithTitleContain(resultPageTitle);
 	}
 
+	//methods that update class variables should be avoided because they lead to weird coupling
+	//if they are not executed and other methods depend on them, the execution becomes unpredictable
 	private void updateResultPageTitleHeader(Automobile auto) {
 		resultPageTitle = String.format("%s %s %s for sale in ",auto.getType().getAutoType(), auto.getMaker(), auto.getModel());
 		resultPageHeader = String.format("%s %s %s for sale in ",auto.getType().getAutoType(), auto.getMaker(), auto.getModel());
@@ -39,6 +44,7 @@ public class ResultPage extends BasePage{
 		city = auto.getLocation().getCity();
 	}
 
+	//what does this do? i have no clue
 	private int getAutoInfoIndex(String searchWord) {
 		txtHeader = pageHeader.getText();
 		String []headerWords = txtHeader.split(" ");
@@ -53,17 +59,22 @@ public class ResultPage extends BasePage{
 		return index;
 	}
 	
+	//it is unclear from the method title what it does
 	public boolean isSearchResultContain() {
 		int searchCount = Integer.valueOf(resultCount.getText());
+		
+		//next line can just be return searchCount > 0;
 		return ((searchCount>0)?true:false);
 	}
 	
+	//no clue what this does
 	public Boolean isAutoInfoCorrectlyDisplay() {
 		int autoInfoLastIndex = getAutoInfoIndex("for") - SPACE;
 		String autoInfoDisplay = txtHeader.substring(0, autoInfoLastIndex);
 		return (autoInfo.equals(autoInfoDisplay)? true:false);
 	}
 
+	//why do you need to check on the city?
 	public Boolean isCityCorrectlyDisplay() {
 		String indexWord = "in";	
 		int indexwordSize = indexWord.length();		
