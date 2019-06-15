@@ -23,7 +23,8 @@ public class SeleniumDriver {
     public static SeleniumDriver getInstance() {
     	return instance;
     }
-        
+      
+    //what happens if the browser is neither chrome not firefox?
     public void startDriver(String browser) {
         try {
           DesiredCapabilities cap = new DesiredCapabilities();
@@ -40,6 +41,7 @@ public class SeleniumDriver {
               driver.set(new ChromeDriver(this.browserCapabilities));
             }
           
+	//implicit waits are a bad practice
          driver.get().manage().timeouts().implicitlyWait(ConfigProperties.using().getImplicitWait(), TimeUnit.SECONDS);
          driver.get().manage().window().maximize(); 
         } catch (Exception e) {
@@ -47,6 +49,7 @@ public class SeleniumDriver {
           }
      }
 	
+	//no need to delete cookies since each session is clean
 	public void cleanSeleniumSession() {
         try {
           driver.get().manage().deleteAllCookies();
