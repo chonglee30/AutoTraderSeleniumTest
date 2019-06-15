@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+//this class does so little that i doubt its value
 public class AutoTypeCheckbox {
 
 	private WebDriver driver;
