@@ -12,6 +12,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+//this is an improper use of a base page
+//the base page should not be a collection of methods that you need
+//it should instead implement methods that are applicable to pages
+//you can see this in my book, Selenium Tips and Tricks
 public class BasePage {
 	
 	protected WebDriver driver;
