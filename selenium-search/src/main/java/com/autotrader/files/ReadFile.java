@@ -14,6 +14,7 @@ public class ReadFile {
 		return new ReadFile();
 	}
 	
+		//do not use null, use try with resources instead
 	  public Iterator<Object[]> readSearchData(String fileToParse) {	 	
 		
 		 List<Object[]> searchDataLists = new ArrayList<>();
