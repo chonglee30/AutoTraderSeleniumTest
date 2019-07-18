@@ -17,10 +17,10 @@ type **mvn clean test**
 ### Author: Chong S. Lee  
 #### Reviewer(s): Alex S.
 
-### About Test Framework: <br/>
-##### Test Framework: Selenium and TestNG <br/>
-##### Language: Java <br/> 
-##### Design Pattern: Page Object Model (Based on Data Driven Test Design Model) 
+### About Test Framework: 
+##### Test Framework: Selenium and TestNG 
+##### Language: Java 
+##### Design Pattern: Page Object Model (Based on Data Driven Test) 
 
 ### Code Structure:
 #### main folder: Framework 
