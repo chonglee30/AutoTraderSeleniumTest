@@ -20,9 +20,9 @@ type **mvn clean test**
 ### About Test Framework: <br/>
 ##### Test Framework: Selenium and TestNG <br/>
 ##### Language: Java <br/> 
-##### Design Pattern: Page Object Model (Based on Data Driven Test Design Model) <br/>
+##### Design Pattern: Page Object Model (Based on Data Driven Test Design Model) 
 
 ### Code Structure:
-#### main folder: Framework and Pages info . 
+#### main folder: Framework 
 #### test folder: Business Logics and test scenarios including assertion.
 
