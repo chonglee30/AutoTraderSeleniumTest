@@ -6,9 +6,9 @@ This program search for 4 different make, model, max price range, and location o
 ## Getting Started
 ### Prerequisites
 #### Things Need To Install
-Java 8 - JDK <br/>
-Maven <br/>
-Eclipse: TestNG Plug-In<br/> . 
+1. Java 8 - JDK <br/>
+2. Maven <br/>
+3. Eclipse: TestNG Plug-In<br/> . 
 
 ### How to Run
 1. Go to the selenium-search directory where pom.xml file is located.<br/>
@@ -18,11 +18,11 @@ Eclipse: TestNG Plug-In<br/> .
 #### Reviewer(s): Alex S.
 
 ### About Test Framework: 
-##### Test Framework: Selenium and TestNG 
-##### Language: Java 
-##### Design Pattern: Page Object Model (Based on Data Driven Test) 
+##### 1.Test Framework: Selenium and TestNG 
+##### 2. Language: Java 
+##### 3. Design Pattern: Page Object Model (Based on Data Driven Test) 
 
 ### Code Structure:
-#### main folder: Framework 
-#### test folder: Business Logics and test scenarios including assertion.
+#### 1. main folder: Framework, Pages 
+#### 2. test folder: Business Logics and test scenarios
 
