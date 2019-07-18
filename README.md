@@ -8,7 +8,7 @@ This program search for 4 different make, model, max price range, and location o
 #### Things Need To Install
 1. Java 8 - JDK <br/>
 2. Maven <br/>
-3. Eclipse: TestNG Plug-In<br/> . 
+3. Eclipse: TestNG Plug-In<br/> 
 
 ### How to Run
 1. Go to the selenium-search directory where pom.xml file is located.<br/>
