@@ -34,7 +34,7 @@ public class SearchTest extends BaseTest{
 		Assert.assertTrue(resultPage.isCityCorrectlyDisplay());
 	}
 		
-	@DataProvider(name="search-data")
+	@DataProvider(name="search-data",parallel=true)
 	public Iterator<Object[]> getSearchData() {
 		String fileToParse = "AutoSearchData.csv";
 		
