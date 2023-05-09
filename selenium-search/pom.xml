@@ -11,7 +11,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <selenium.java.version>3.141.59</selenium.java.version>
         <assertj.version>3.12.2</assertj.version>
-        <testng.version>6.14.3</testng.version>
+        <testng.version>7.5.1</testng.version>
         <webdrivermanager.version>3.6.0</webdrivermanager.version>
         <opencsv.version>4.6</opencsv.version>
     </properties>
